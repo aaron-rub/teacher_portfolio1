@@ -1,0 +1,97 @@
+---
+layout: base
+permalink: /login
+title: Login
+search_exclude: true
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Statistics Web App</title>
+    <style>
+        /* Custom styles based on your SCSS */
+        body {
+            background-color: #282a36;
+            color: #f8f8f2;
+            font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #323443;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Add more custom styles as needed */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Bar -->
+        <nav>
+            <ul>
+                <li><a href="#">CLASSROOMS</a></li>
+                <li><a href="#">RESOURCES</a></li>
+                <li><a href="#">SIGN IN</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+        </nav>
+
+        <!-- Graphing Area -->
+        <div id="graph-area">
+            <label for="graph-type">Graph Type:</label>
+            <select id="graph-type">
+                <option value="dot-plot">Dot Plot</option>
+                <option value="histogram">Histogram</option>
+                <option value="boxplot">Box Plot</option>
+            </select>
+            <!-- Placeholder for Plotly graph -->
+            <div id="plotly-graph"></div>
+        </div>
+
+        <!-- Summary Statistics -->
+        <div id="summary-stats">
+            <!-- Add your summary statistics table here -->
+        </div>
+
+        <!-- Inferences -->
+        <div id="inferences">
+            <label for="stat-tests">Select Statistical Test:</label>
+            <select id="stat-tests">
+                <option value="t-test">Example t-test</option>
+                <option value="anova">One-way ANOVA</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+    </div>
+
+    <!-- Include Plotly library (you can host it locally or use a CDN) -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        // Example: Create a simple scatter plot using Plotly
+        const data = [{
+            x: [1, 2, 3, 4, 5],
+            y: [10, 11, 9, 12, 8],
+            mode: 'markers',
+            type: 'scatter',
+            marker: { color: '#ffb86c' }, // Customize marker color
+            name: 'Group A'
+        }];
+
+        const layout = {
+            title: 'Scatter Plot',
+            xaxis: { title: 'X-axis' },
+            yaxis: { title: 'Y-axis' },
+            paper_bgcolor: '#323443', // Set plot background color
+            plot_bgcolor: '#323443', // Set plot area background color
+            font: { color: '#f8f8f2' } // Set font color
+        };
+
+        Plotly.newPlot('plotly-graph', data, layout);
+    </script>
+</body>
+</html>
